@@ -122,8 +122,8 @@ alias e='emacs -nw'
 
 bind '"\C-n": history-search-forward'
 bind '"\C-p": history-search-backward'
-bind '"\e[A": history-search-forward' # up arrow
-bind '"\e[B": history-search-backward' # down arrow
+bind '"\e[A": history-search-backward' # up arrow
+bind '"\e[B": history-search-forward' # down arrow
 
 this_time() {
     date +%T
