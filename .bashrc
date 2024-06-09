@@ -142,7 +142,9 @@ git_bg_color() {
 }
 
 git_repo() {
-    if [ -d .git ]; then
+    git status &> /dev/null
+    is_git_repo=$(echo $?)
+    if [ $is_git_repo -eq 0 ]; then
 	echo " (git:$(git_branch))"
     else
 	echo ""
