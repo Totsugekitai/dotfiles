@@ -1,4 +1,3 @@
-(native-compile-async "~/.emacs.d/init.el")
 (setopt use-short-answers t) ; Since Emacs 29, `yes-or-no-p' will use `y-or-n-p'
 (setq make-backup-files nil) ; Don't create backup files such as `foo.txt~`
 (global-display-line-numbers-mode 1)	; Display line numbers
@@ -21,9 +20,15 @@
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
 
-(use-package monokai-theme
+(use-package modus-themes
   :ensure t
-  :config (load-theme 'monokai t))
+  :custom
+  (modus-themes-italic-constructs t)
+  (modus-themes-bold-constructs nil)
+  (modus-themes-region '(bg-only no-extend))
+  :config
+  (modus-themes-load-theme 'modus-operandi)
+  :bind ("<f5>" . 'modus-themes-toggle))
 
 ;; Clipboard package
 (use-package xclip
