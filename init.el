@@ -1,3 +1,4 @@
+(native-compile-async "~/.emacs.d/init.el")
 (setopt use-short-answers t) ; Since Emacs 29, `yes-or-no-p' will use `y-or-n-p'
 (setq make-backup-files nil) ; Don't create backup files such as `foo.txt~`
 (global-display-line-numbers-mode 1)	; Display line numbers
@@ -6,6 +7,7 @@
 (menu-bar-mode -1)			; Hide menu bar
 (electric-pair-mode 1)			; Blacket auto-completion
 (setq select-enable-clipboard t)	; Copy and paste with clipboard
+(setq-default show-trailing-whitespace t)
 ;; Scroll settings
 (setq scroll-conservatively 1)
 (setq scroll-margin 10)
@@ -28,10 +30,19 @@
   :ensure t
   :custom (xclip-mode t))
 
+(use-package saveplace
+  :ensure t
+  :init
+  (save-place-mode 1))
+
 (use-package ripgrep
   :ensure t
   :bind ("C-x C-g" . ripgrep-regexp)
   :custom (ripgrep-arguments '("-C" "2")))
+
+(use-package magit
+  :ensure t
+  :bind ("C-x g" . magit-status))
 
 (use-package company
   :ensure t
@@ -62,8 +73,9 @@
   (rustic-mode . eglot-ensure)
   (sh-mode . eglot-ensure)
   :config
-  (add-to-list 'eglot-server-programs '((c-mode c++-mode) . ("clangd")))
-  (add-to-list 'eglot-server-programs '((rustic-mode) . ("rust-analyzer")))
+  (add-to-list 'eglot-server-programs '(c-mode . ("clangd")))
+  (add-to-list 'eglot-server-programs '(c++-mode . ("clangd")))
+  (add-to-list 'eglot-server-programs '(rustic-mode . ("rust-analyzer")))
   (add-to-list 'eglot-server-programs '(sh-mode . ("bash-language-server" "start"))))
 
 (use-package clang-format
