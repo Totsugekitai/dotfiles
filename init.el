@@ -65,6 +65,11 @@
               ("C-n" . company-select-next)
               ("C-p" . company-select-previous)))
 
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
+
 (use-package helm
   :ensure t
   :custom (helm-mode 1)
