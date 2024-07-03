@@ -86,11 +86,13 @@
   (c++-mode . eglot-ensure)
   (rustic-mode . eglot-ensure)
   (sh-mode . eglot-ensure)
+  (markdown-mode . eglot-ensure)
   :config
   (add-to-list 'eglot-server-programs '(c-mode . ("clangd")))
   (add-to-list 'eglot-server-programs '(c++-mode . ("clangd")))
   (add-to-list 'eglot-server-programs '(rustic-mode . ("rust-analyzer")))
-  (add-to-list 'eglot-server-programs '(sh-mode . ("bash-language-server" "start"))))
+  (add-to-list 'eglot-server-programs '(sh-mode . ("bash-language-server" "start")))
+  (add-to-list 'eglot-server-programs '(markdown-mode . ("marksman"))))
 
 (use-package clang-format
   :ensure t)
