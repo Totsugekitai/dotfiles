@@ -103,4 +103,6 @@
 
 (use-package git-gutter
   :ensure t
-  :custom (global-git-gutter-mode t))
+  :custom
+  (global-git-gutter-mode t)
+  (git-gutter:handled-backends '(git hg)))
