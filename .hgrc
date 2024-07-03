@@ -1,0 +1,14 @@
+[ui]
+username = Tomoyuki HIROSE <hrstmyk811m@gmail.com>
+editor = e
+ignore = ~/.hgignore
+
+[alias]
+glog = log --graph
+
+[diff]
+git = true
+showfunc = true
+
+[extensions]
+hggit =
