@@ -49,6 +49,10 @@
   :ensure t
   :bind ("C-x g" . magit-status))
 
+(use-package monky
+  :ensure t
+  :bind ("C-x h" . monky-status))
+
 (use-package company
   :ensure t
   :custom
