@@ -151,6 +151,28 @@ git_repo() {
     fi
 }
 
-PS1='[$(this_time)]\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[$(git_bg_color)\]$(git_repo)\[\033[00m\]\n\$ '
+hg_bookmark() {
+    hg bookmarks 2> /dev/null | awk '/^ [*]/{print $2}'
+}
+
+hg_bg_color() {
+    if [[ "$(hg diff 2> /dev/null | wc -l)" == 0 ]]; then
+	echo -e "\033[01;32m"	# Green
+    else
+	echo -e "\033[01;31m"	# Red
+    fi
+}
+
+hg_repo() {
+    hg status &> /dev/null
+    is_hg_repo=$(echo $?)
+    if [ $is_hg_repo -eq 0 ]; then
+	echo " (hg:$(hg_bookmark))"
+    else
+	echo ""
+    fi
+}
+
+PS1='[$(this_time)]\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[$(git_bg_color)\]$(git_repo)\[\033[00m\]\[\033[00m\]\[$(hg_bg_color)\]$(hg_repo)\[\033[00m\]\n\$ '
 
 export PATH="$PATH:$HOME/.local/bin"
