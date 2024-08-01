@@ -42,19 +42,23 @@
 
 (use-package ripgrep
   :ensure t
+  :defer t
   :bind ("C-x C-g" . ripgrep-regexp)
   :custom (ripgrep-arguments '("-C" "2")))
 
 (use-package magit
   :ensure t
+  :defer t
   :bind ("C-x g" . magit-status))
 
 (use-package monky
   :ensure t
+  :defer t
   :bind ("C-x h" . monky-status))
 
 (use-package company
   :ensure t
+  :defer t
   :custom
   (global-company-mode 1)
   (company-idle-delay 0)
@@ -76,11 +80,13 @@
 
 (use-package helm
   :ensure t
+  :defer t
   :custom (helm-mode 1)
   :bind ("M-x" . helm-M-x))
 
 (use-package eglot
   :ensure t
+  :defer t
   :hook
   (c-mode . eglot-ensure)
   (c++-mode . eglot-ensure)
@@ -95,14 +101,17 @@
   (add-to-list 'eglot-server-programs '(markdown-mode . ("marksman"))))
 
 (use-package clang-format
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package rustic
   :ensure t
+  :defer t
   :custom (rustic-lsp-client 'eglot))
 
 (use-package git-gutter
   :ensure t
+  :defer t
   :custom
   (global-git-gutter-mode t)
   (git-gutter:handled-backends '(git hg)))
