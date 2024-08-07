@@ -4,6 +4,9 @@
 (line-number-mode t)			; Display line number
 (column-number-mode t)			; Display column number
 (menu-bar-mode -1)			; Hide menu bar
+(tool-bar-mode -1)			; Hide tool bar
+(setq inhibit-startup-screen t)		; Disable startup screen
+(setq inhibit-startup-message t)	; Disable startup message
 (electric-pair-mode 1)			; Blacket auto-completion
 (setq select-enable-clipboard t)	; Copy and paste with clipboard
 (setq-default show-trailing-whitespace t)
@@ -115,3 +118,7 @@
   :custom
   (global-git-gutter-mode t)
   (git-gutter:handled-backends '(git hg)))
+
+(use-package org
+  :ensure t
+  :defer t)
