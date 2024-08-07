@@ -117,7 +117,12 @@ if ! shopt -oq posix; then
 fi
 
 # My settings
-alias e='emacs -nw'
+launch_emacs() {
+    emacs "$1" &
+}
+
+alias e='launch_emacs'
+
 . "$HOME/.cargo/env"
 
 bind '"\C-n": history-search-forward'
