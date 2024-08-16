@@ -122,3 +122,9 @@
 (use-package org
   :ensure t
   :defer t)
+
+(use-package tramp
+  :ensure t
+  :defer t
+  :config
+  (add-to-list 'tramp-remote-path "~/.cargo/bin"))
