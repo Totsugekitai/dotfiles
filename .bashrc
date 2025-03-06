@@ -181,3 +181,4 @@ hg_repo() {
 PS1='[$(this_time)]\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[$(git_bg_color)\]$(git_repo)\[\033[00m\]\[\033[00m\]\[$(hg_bg_color)\]$(hg_repo)\[\033[00m\]\n\$ '
 
 export PATH="$PATH:$HOME/.local/bin"
+eval "$(/home/totsugekitai/.local/bin/mise activate bash)"

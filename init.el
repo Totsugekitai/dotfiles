@@ -94,12 +94,18 @@
   (c-mode . eglot-ensure)
   (c++-mode . eglot-ensure)
   (rustic-mode . eglot-ensure)
+  (ruby-mode . eglot-ensure)
+  (web-mode . eglot-ensure)
   (sh-mode . eglot-ensure)
   (markdown-mode . eglot-ensure)
   :config
   (add-to-list 'eglot-server-programs '(c-mode . ("clangd")))
   (add-to-list 'eglot-server-programs '(c++-mode . ("clangd")))
   (add-to-list 'eglot-server-programs '(rustic-mode . ("rust-analyzer")))
+  (add-to-list 'eglot-server-programs '(ruby-mode . ("ruby-lsp")))
+  (add-to-list 'eglot-server-programs '(web-mode . ("typescript-language-server" "--stdio")))
+  ;; (add-to-list 'eglot-server-programs '(html-mode . ("vscode-html-language-server" "--stdio")))
+  ;; (add-to-list 'eglot-server-programs '(css-mode . ("vscode-css-language-server" "--stdio")))
   (add-to-list 'eglot-server-programs '(sh-mode . ("bash-language-server" "start")))
   (add-to-list 'eglot-server-programs '(markdown-mode . ("marksman"))))
 
@@ -111,6 +117,16 @@
   :ensure t
   :defer t
   :custom (rustic-lsp-client 'eglot))
+
+(use-package web-mode
+  :ensure t
+  :defer t
+  :mode
+  ("\\.ts[x]?\\'" . web-mode)
+  ("\\.css\\'" . web-mode))
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
+(setq web-mode-code-indent-offset 2)
 
 (use-package git-gutter
   :ensure t
