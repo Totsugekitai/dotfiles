@@ -1,0 +1,15 @@
+[user]
+	name = Tomoyuki HIROSE
+	email = hrstmyk811m@gmail.com
+	signingKey = BEC11FA454B2A738946878E86F34DC793EB36B38
+[gpg]
+	program = /usr/bin/gpg
+[commit]
+	gpgSign = true
+[core]
+	editor = emacs -nw
+[alias]
+	st = status
+	glog = log --graph
+[init]
+	defaultBranch = main
