@@ -187,3 +187,13 @@ vterm_printf() {
         printf "\e]%s\e\\" "$1"
     fi
 }
+
+em() {
+    if [ -z "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ]; then
+        emacs -nw "$@"
+    else
+        emacs "$@"
+    fi
+}
+
+alias emacs=em
