@@ -158,6 +158,14 @@
   :ensure nil
   :hook (emacs-lisp-mode . eldoc-mode))
 
+(use-package markdown-mode
+  :ensure t
+  :defer t
+  :mode ("\\.md\\'" . gfm-mode)
+  :config
+  (setq markdown-fontify-code-blocks-natively t)
+  (setq markdown-indent-on-enter 'indent-and-new-item))
+
 ;; ------------------------------------
 ;; org-mode
 ;; ------------------------------------
