@@ -28,6 +28,8 @@
   (condition-case nil
       (load custom-file)
     (error nil))
+  ;; カーソル位置を覚える
+  (save-place-mode 1)
   ;; 補完スタイル
   (setq completion-styles '(orderless basic)
 	completion-category-defaults nil
