@@ -131,15 +131,13 @@
 (use-package modus-themes
   :ensure t
   :demand t
-  :init
-  (modus-themes-include-derivatives-mode 1)
   :bind
   (("<f5>" . modus-themes-toggle)
    ("C-<f5>" . modus-themes-select))
   :config
-  (setq modus-themes-to-toggle '(modus-operandi-tinted modus-vivendi-tinted)
+  (setq modus-themes-to-toggle '(modus-operandi-tinted modus-vivendi)
 	modus-themes-mixed-fonts t)
-  (modus-themes-load-theme 'modus-operandi))
+  (modus-themes-load-theme 'modus-operandi-tinted))
 
 ;; ------------------------------------
 ;; LSP
