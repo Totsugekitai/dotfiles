@@ -151,6 +151,15 @@
   (eglot-confirm-server-initiated-edits nil))
 
 ;; ------------------------------------
+;; editorconfig
+;; ------------------------------------
+
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
+
+;; ------------------------------------
 ;; 各言語モード
 ;; ------------------------------------
 
